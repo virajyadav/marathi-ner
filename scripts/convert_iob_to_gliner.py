@@ -321,6 +321,8 @@ def convert_source_split(
             include_provenance=include_provenance,
             strict_iob=strict_iob,
         )
+        if not example["ner"]:
+            continue
         validate_example(example, source.name, sentence_id)
         update_stats(stats, example)
         examples.append(example)
