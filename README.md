@@ -48,6 +48,7 @@ scripts/convert_iob_to_gliner.py      Convert IOB TSV data to GLiNER JSONL
 scripts/convert_label_studio.py       Convert GLiNER JSONL to Label Studio JSON
 scripts/test_gliner_marathi.py        Run a quick GLiNER inference check
 scripts/infer_mahabert_ner.py         Run MahaBERT token-classification inference
+scripts/streamlit_mahabert_ner.py     Visualize MahaBERT NER predictions
 Copy_of_GliNER_Finetune.ipynb         Current GLiNER fine-tuning notebook
 docs/marathi_ner_sources.md           Dataset source and redistribution notes
 docs/gliner_conversion.md             Conversion format details
@@ -77,6 +78,9 @@ python3 -m pip install "gliner[training]"
 
 # MahaBERT / Transformers inference
 python3 -m pip install transformers torch
+
+# MahaBERT Streamlit visualization
+python3 -m pip install transformers torch streamlit
 ```
 
 ## Dataset Pipeline
@@ -268,6 +272,12 @@ With a specific model and JSON output:
 python3 scripts/infer_mahabert_ner.py \
   --model l3cube-pune/marathi-ner \
   --json
+```
+
+MahaBERT Streamlit visualization:
+
+```bash
+streamlit run scripts/streamlit_mahabert_ner.py
 ```
 
 ## Data Notes
